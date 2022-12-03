@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .nextTetromino{
+            margin: 10px;
+        }
+        html, body {
+            height: 100%;
+        }
+        /*делаем чёрный фон и выравниваем всё по центру*/
+        body {
+            background: #F2F3AE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 20px;
+            font-weight: bold;
+            user-select: none;
+        }
+        p{
+        }
+        /*толщина холста — 1 пиксель, белый цвет*/
+        canvas {
+            border: 5px solid #874C62;
+            border-radius: 10px;
+        }
+        .game{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .start-button{
+            margin-top: 20px;
+            background-color: #874C62; /* Green */
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .container{
+            margin: 10px;
+            border: 5px solid #874C62;
+            border-radius: 10px;
+            font-size: large;
+        }
+        .current-score{ margin: 10px;
+            border-radius: 10px;
+            font-size: large;}
+        a{
+
+        }
+    </style>
+</head>
+<body>
+<p id="task">Kill all enemies!</p>
+<p id="hp">HP = 100</p>
+<p id="score">Score = 0</p>
+<p id="name">Name = 0</p>
+<canvas id="canvasId" width="1600" height="640"
+></canvas>
+
+<script src="map.manager.js" type="module"></script>
+<script src="sprite.manager.js" type="module"></script>
+<script src="game.manager.js" type="module"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const canvas = document.getElementById("canvasId");
+        const gameManager = new GameManager(canvas, 1);
+        gameManager.play();
+    });
+</script>
+</body>
+</html>
